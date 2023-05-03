@@ -1,3 +1,3 @@
 # SipaaKernel Documentation
 
-This is the documentation for SipaaKernel API's.
+This is the documentation for SipaaKernel and its APIs.
