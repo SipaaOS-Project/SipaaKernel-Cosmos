@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SipaaKernel++", "SipaaKernel++\SipaaKernel++.csproj", "{1F354E15-A01F-4CEF-80D5-5AF7828C5E1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SipaaGL2", "SipaaGL2\SipaaGL2.csproj", "{CBC69A5D-96BA-48C2-9E96-6157C066DEF9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrismGraphics", "PrismGraphics\PrismGraphics.csproj", "{CAD80D78-0B2F-4934-BAF3-65768F4346D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SipaaKernel.Core", "SipaaKernel.Core\SipaaKernel.Core.csproj", "{2BA2CE29-BC51-4AD4-993F-53089BBB37BD}"
@@ -21,10 +19,6 @@ Global
 		{1F354E15-A01F-4CEF-80D5-5AF7828C5E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F354E15-A01F-4CEF-80D5-5AF7828C5E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F354E15-A01F-4CEF-80D5-5AF7828C5E1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBC69A5D-96BA-48C2-9E96-6157C066DEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBC69A5D-96BA-48C2-9E96-6157C066DEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBC69A5D-96BA-48C2-9E96-6157C066DEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBC69A5D-96BA-48C2-9E96-6157C066DEF9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CAD80D78-0B2F-4934-BAF3-65768F4346D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CAD80D78-0B2F-4934-BAF3-65768F4346D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAD80D78-0B2F-4934-BAF3-65768F4346D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
