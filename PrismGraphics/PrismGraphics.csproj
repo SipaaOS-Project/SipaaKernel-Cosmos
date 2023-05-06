@@ -17,9 +17,9 @@
 	<!--Cosmos include group-->
 	<ItemGroup>
 
-		<PackageReference Include="Cosmos.HAL2" Version="0.1.0-*" />
-		<PackageReference Include="Cosmos.Core" Version="0.1.0-*" />
-		<PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20230501033212" />
+		<PackageReference Include="Cosmos.HAL2" Version="0.1.0-*" NoWarn="NU1604"/>
+		<PackageReference Include="Cosmos.Core" Version="0.1.0-*" NoWarn="NU1604"/>
+		<PackageReference Include="Cosmos.System2" Version="0.1.0-*" NoWarn="NU1604"/>
 
 	</ItemGroup>
 

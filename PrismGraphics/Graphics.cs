@@ -863,13 +863,104 @@ public unsafe class Graphics : IDisposable
 
 	#endregion
 
-	#region Misc
+	#region Blurring
 
 	/// <summary>
-	/// Clears the canvas with the specified color.
+	/// Blur the current <see cref="Graphics"/> instance
+	/// 
+	/// Base implementation by nifanfa
 	/// </summary>
-	/// <param name="Color">Color to clear the canvas with.</param>
-	public void Clear(Color Color)
+	/// <param name="intensity">The intensity of blur</param>
+	public void Blur(int intensity)
+	{
+        for (int w = 0; w < Width; w++)
+        {
+            for (int h = 0; h < Height; h++)
+            {
+                float r = 0, g = 0, b = 0, a = 0;
+                int counter = 0;
+
+                for (int ww = w - intensity; ww < w + intensity; ww++)
+                {
+                    for (int hh = h - intensity; hh < h + intensity; hh++)
+                    {
+                        if (ww >= 0 && hh >= 0 && ww < Width && hh < Height)
+                        {
+                            Color color = new(Internal[Width * hh + ww]);
+
+                            r += color.R;
+                            g += color.G;
+                            b += color.B;
+                            a += color.A;
+
+                            counter++;
+                        }
+                    }
+                }
+
+                r /= counter;
+                g /= counter;
+                b /= counter;
+                a /= counter;
+
+				this[w, h] = new(a, r, g, b);
+                //SetPixel(w, h, Color.FromArgb((int)a, (int)r, (int)g, (int)b).ToArgb());
+            }
+        }
+    }
+
+    /// <summary>
+    /// Blur a part of the current <see cref="Graphics"/> instance
+    /// 
+    /// Base implementation by nifanfa
+    /// </summary>
+    /// <param name="intensity">The intensity of blur</param>
+    public void Blur(int intensity, int x, int y, int width, int height)
+    {
+        for (int w = x; w < x + width; w++)
+        {
+            for (int h = y; h < x + height; h++)
+            {
+                float r = 0, g = 0, b = 0, a = 0;
+                int counter = 0;
+
+                for (int ww = w - intensity; ww < w + intensity; ww++)
+                {
+                    for (int hh = h - intensity; hh < h + intensity; hh++)
+                    {
+                        if (ww >= 0 && hh >= 0 && ww < Width && hh < Height)
+                        {
+                            Color color = new(Internal[Width * hh + ww]);
+
+                            r += color.R;
+                            g += color.G;
+                            b += color.B;
+                            a += color.A;
+
+                            counter++;
+                        }
+                    }
+                }
+
+                r /= counter;
+                g /= counter;
+                b /= counter;
+                a /= counter;
+
+                this[w, h] = new(a, r, g, b);
+                //SetPixel(w, h, Color.FromArgb((int)a, (int)r, (int)g, (int)b).ToArgb());
+            }
+        }
+    }
+    #endregion
+
+    #region Misc
+
+    /// <summary>
+    /// Clears the canvas with the specified color.
+    /// </summary>
+    /// <param name="Color">Color to clear the canvas with.</param>
+    public void Clear(Color Color)
 	{
 		MemoryOperations.Fill(Internal, Color.ARGB, (int)Size);
 	}

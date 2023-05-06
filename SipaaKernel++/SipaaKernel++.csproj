@@ -16,11 +16,21 @@
         <Launch>VMware</Launch>
         <Profile>VMware</Profile>
         <Description>Use VMware Player or Workstation to deploy and debug.</Description>
+		    <DebugType>none</DebugType>
+		    <DebugEnabled>False</DebugEnabled>
         <PxeInterface>192.168.0.8</PxeInterface>
         <RootNamespace>$(MSBuildProjectName.Replace("+", ""))</RootNamespace>
         <CompileVBEMultiboot>False</CompileVBEMultiboot>
         <VBEResolution></VBEResolution>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\wp.bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\wp.bmp" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />

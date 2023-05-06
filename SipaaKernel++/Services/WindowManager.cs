@@ -1,7 +1,9 @@
-﻿using Cosmos.HAL.Drivers.PCI.Video;
+﻿using Cosmos.Core;
 using Cosmos.System;
 using PrismGraphics;
+using PrismGraphics.Animation;
 using PrismGraphics.Extentions;
+using PrismGraphics.Fonts;
 using SipaaKernel.Core;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,11 @@ namespace SipaaKernel.Services
         private Logger logger;
         private bool isVBE = false;
         private Graphics cursorGraphics;
+        AnimationController A = new(25f, 270f, new(0, 0, 0, 0, 750), AnimationMode.Ease);
+        AnimationController P = new(0f, 360f, new(0, 0, 0, 0, 500), AnimationMode.Linear);
+
+        int X { get => ScreenWidth / 2; }
+        int Y { get => ScreenHeight / 2; }
 
         public override bool Start()
         {
@@ -36,7 +43,7 @@ namespace SipaaKernel.Services
                 logger.LoggerSource = "SK:WM";
 
                 Instance = this;
-
+                
                 logger.Log("Initializing mouse manager...", Logger.LogType.Info);
                 MouseManager.ScreenWidth = 1280;
                 MouseManager.ScreenHeight = 720;
@@ -85,14 +92,14 @@ namespace SipaaKernel.Services
         {
             var d = Display;
 
-            d.Clear();
-
-            d.DrawFilledRectangle(10, 10, 100, 100, 7, new(0xFFFFFF));
-            d.DrawFilledRectangle(0, 0, 200, 200, 0, new(140, 255, 0, 255));
+            d.DrawImage(0, 0, Kernel.wallpbmp, false);
+            d.DrawString(10, 10, $"{GCImplementation.GetUsedRAM() / 1024 / 1024}/{CPU.GetAmountOfRAM()}", Font.Fallback, Color.White);
+           
             if (!isVBE)
                 d.SetCursor(MouseManager.X, MouseManager.Y, true);
             else
                 d.DrawImage((int)MouseManager.X, (int)MouseManager.Y, cursorGraphics);
+            //d.Blur(20, 400, 300, 60, 60);
             d.Update();
 
             return true;

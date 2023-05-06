@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20230501033212" />
+    <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild" NoWarn="NU1604"/>
   </ItemGroup>
 
 </Project>
